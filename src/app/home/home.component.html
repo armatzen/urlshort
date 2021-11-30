@@ -24,7 +24,7 @@
       </ion-card>
     </ion-col>
     <ion-col>
-      <ion-card *ngFor="let card of URLCards">
+      <ion-card *ngFor="let card of URLCards.reverse()">
         <ion-card-header>
           <ion-title>
             Link Shorted: <a href="{{ card.short_url }}">{{ card.short_url }}</a>
@@ -32,7 +32,7 @@
         </ion-card-header>
         <ion-card-content>
           <ion-item><b>Long link: </b> {{ card.long_url }}</ion-item>
-          <ion-item><b>Date link: </b> {{ card.created_at }}</ion-item>
+          <ion-item><b>Date link: </b> {{ card.created_at * 1000 | date: 'dd/MM/yyyy, hh:mm' }}</ion-item>
         </ion-card-content>
       </ion-card>
     </ion-col>
