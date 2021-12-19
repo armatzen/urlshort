@@ -1,47 +1,43 @@
-<ion-grid fixed>
-  <ion-row>
-    <ion-header>
-      <ion-toolbar color="primary">
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title><span translate>Acorta tu URL</span></ion-title>
-      </ion-toolbar>
-    </ion-header>
-  </ion-row>
-  <ion-row>
-    <ion-col class="ion-align-self-center">
-      <ion-card>
-        <img src="./clip.jpg" />
-      </ion-card>
-    </ion-col>
-  </ion-row>
-  <ion-row class="ion-align-self-center">
-    <ion-col>
-      <ion-card>
-        <ion-card-content>
-          <ion-item>
-            <ion-label position="floating"><b translate>Shorten your long URL:</b></ion-label>
-            <ion-input type="text" placeholder="https://google.com" [(ngModel)]="inputURL"></ion-input>
-            <ion-button fill="solid" slot="end" shape="round" color="primary" (click)="shortURL(inputURL)">
-              <ion-icon color="light" size="large" name="cut-outline"> </ion-icon>
-            </ion-button>
-          </ion-item>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-    <ion-col>
-      <ion-card *ngFor="let card of URLCards.reverse()">
-        <ion-card-header>
-          <ion-title>
-            Link Shorted: <a href="{{ card.short_url }}">{{ card.short_url }}</a>
-          </ion-title>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-item><b>Long link: </b> {{ card.long_url }}</ion-item>
-          <ion-item><b>Date link: </b> {{ card.created_at * 1000 | date: 'dd/MM/yyyy, hh:mm a' }}</ion-item>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+<ion-content id="cont1" color="dark">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons>
+          <ion-title><span translate>Shorten your long URL</span></ion-title>
+        </ion-toolbar>
+      </ion-header>
+    </ion-row>
+
+    <ion-row class="ion-align-self-center">
+      <ion-col>
+        <ion-card>
+          <ion-card-content>
+            <ion-item color="black">
+              <ion-label color="light" position="floating"><b translate>Shorten your long URL:</b></ion-label>
+              <ion-input type="text" placeholder="https://google.com" [(ngModel)]="inputURL"></ion-input>
+              <ion-button fill="solid" slot="end" shape="round" color="primary" (click)="shortURL(inputURL)">
+                <ion-icon color="light" size="large" name="cut-outline"> </ion-icon>
+              </ion-button>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card *ngFor="let card of URLCards.reverse()">
+          <ion-card-header>
+            <ion-title>
+              Link Shorted: <a href="{{ card.short_url }}">{{ card.short_url }}</a>
+            </ion-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item><b>Long link: </b> {{ card.long_url }}</ion-item>
+            <ion-item><b>Date link: </b> {{ card.created_at * 1000 | date: 'dd/MM/yyyy, hh:mm a' }}</ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
